@@ -24,6 +24,6 @@ resource "aws_instance" "app_server" {
     }
 }
 
-resouce "aws_eip""app_ipaddress"{
+resource "aws_eip""app_ipaddress"{
     
 }
