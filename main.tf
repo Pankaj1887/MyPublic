@@ -59,6 +59,7 @@ resource "aws_instance" "web001" {
 #	Webserver = "Nginx"
     }
     subnet_id = aws_subnet.subnet-1a.id
+    vpc_security_group_ids = ["aws_security_group.allow_port80.id"]
 }
 
 
@@ -73,21 +74,22 @@ resource "aws_instance" "web002" {
 #	Webserver = "Nginx"
     }
     subnet_id = aws_subnet.subnet-1b.id
+    vpc_security_group_ids = ["aws_security_group.allow_port80.id"]    
 }
 
 
-resource "aws_instance" "web003" {
+#resource "aws_instance" "web003" {
 #    ami = "ami-0851b76e8b1bce90b"
-    ami = "ami-000051d5c1a3d7008"
-    instance_type = "t2.micro"
+#    ami = "ami-000051d5c1a3d7008"
+#    instance_type = "t2.micro"
 
-    tags = {
-        Name = "web003"
-	App = "wordpress"
+#    tags = {
+#        Name = "web003"
+#	App = "wordpress"
 #	Webserver = "Nginx"
-    }
-    subnet_id = aws_subnet.subnet-1c.id
-}
+#    }
+#    subnet_id = aws_subnet.subnet-1c.id
+#}
 
 #resource "aws_eip""app_ipaddress"{
     
@@ -103,7 +105,7 @@ resource "aws_security_group" "allow_port80" {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = "0.0.0.0/0"
+    cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = [aws_vpc.ecommerce-vpc.ipv6_cidr_block]
   }
 
