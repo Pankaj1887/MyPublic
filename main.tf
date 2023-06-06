@@ -59,7 +59,7 @@ resource "aws_instance" "web001" {
 #	Webserver = "Nginx"
     }
     subnet_id = aws_subnet.subnet-1a.id
-    vpc_security_group_ids = aws_security_group.allow_port80.id
+    vpc_security_group_ids = [aws_security_group.allow_port80.id]
 }
 
 
@@ -74,7 +74,7 @@ resource "aws_instance" "web002" {
 #	Webserver = "Nginx"
     }
     subnet_id = aws_subnet.subnet-1b.id
-    vpc_security_group_ids = aws_security_group.allow_port80.id   
+    vpc_security_group_ids = [aws_security_group.allow_port80.id]    
 }
 
 
