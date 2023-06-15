@@ -160,5 +160,12 @@ resource "aws_route_table_association" "associate-1c" {
 
 
 resource "aws_security_group" "aws_default_sg" {
+  ingress {
+    description      = "HTTP from VPC"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
 
+  }
 }
