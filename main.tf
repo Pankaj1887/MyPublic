@@ -146,3 +146,13 @@ resource "aws_route_table" "rt_public" {
     Name = "rt_public"
   }
 }
+
+resource "aws_route_table_association" "associate-1a" {
+  subnet_id      = aws_subnet.subnet-1a.id
+  route_table_id = aws_route_table.rt_public.id
+}
+
+resource "aws_route_table_association" "associate-1c" {
+  subnet_id      = aws_subnet.subnet-1c.id
+  route_table_id = aws_route_table.rt_public.id
+}
