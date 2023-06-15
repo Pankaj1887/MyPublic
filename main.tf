@@ -121,3 +121,10 @@ resource "aws_security_group" "allow_port80" {
     Name = "allow_tls"
   }
 }
+
+resource "aws_internet_gateway" "myvpc_ig" {
+  vpc_id      = aws_vpc.ecommerce-vpc.id    
+  tags = {
+    Name = "main"
+  }
+}
