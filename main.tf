@@ -157,3 +157,8 @@ resource "aws_route_table_association" "associate-1c" {
   subnet_id      = aws_subnet.subnet-1c.id
   route_table_id = aws_route_table.rt_public.id
 }
+
+
+resource "aws_security_group" "aws_default_sg" {
+
+}
