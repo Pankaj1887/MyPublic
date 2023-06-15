@@ -128,3 +128,21 @@ resource "aws_internet_gateway" "myvpc_ig" {
     Name = "main"
   }
 }
+
+resource "aws_route_table" "rt_public" {
+  vpc_id = aws_vpc.ecommerce-vpc.id 
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.myvpc_ig.id
+  }
+
+ # route {
+ #   ipv6_cidr_block        = "::/0"
+ #   egress_only_gateway_id = aws_egress_only_internet_gateway.foo.id
+ # }
+
+  tags = {
+    Name = "rt_public"
+  }
+}
