@@ -23,6 +23,7 @@ resource "aws_subnet" "subnet-1a"{
     vpc_id = aws_vpc.ecommerce-vpc.id
     cidr_block = "10.10.1.0/24"
     availability_zone = "ap-south-1a"
+    map_public_ip_on_launch = "true"    
     tags = {
 	Name = "subnet-1a"
     }
@@ -53,6 +54,7 @@ resource "aws_instance" "web001" {
 #    ami = "ami-0851b76e8b1bce90b"
     ami = "ami-000051d5c1a3d7008"
     instance_type = "t2.micro"
+    key_name = "pan2linubun"
 
     tags = {
         Name = "web001"
@@ -68,6 +70,7 @@ resource "aws_instance" "web002" {
 #    ami = "ami-0851b76e8b1bce90b"
     ami = "ami-000051d5c1a3d7008"
     instance_type = "t2.micro"
+    key_name = "pan2linubun"
 
     tags = {
         Name = "web002"
@@ -109,7 +112,14 @@ resource "aws_security_group" "allow_port80" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
-
+  ingress {
+    description      = "SSH"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
   egress {
     from_port        = 0
     to_port          = 0
