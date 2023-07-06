@@ -54,7 +54,7 @@ resource "aws_instance" "web001" {
 #    ami = "ami-0851b76e8b1bce90b"
     ami = "ami-000051d5c1a3d7008"
     instance_type = "t2.micro"
-    key_name = "pan2linubun"
+    key_name = "pan2linumum"
 
     tags = {
         Name = "web001"
@@ -70,7 +70,7 @@ resource "aws_instance" "web002" {
 #    ami = "ami-0851b76e8b1bce90b"
     ami = "ami-000051d5c1a3d7008"
     instance_type = "t2.micro"
-    key_name = "pan2linubun"
+    key_name = "pan2linumum"
 
     tags = {
         Name = "web002"
