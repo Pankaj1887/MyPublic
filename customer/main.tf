@@ -29,7 +29,7 @@ module "vpc1" {
 module "subnet1" {
     source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/subnet"
     subnet_cidr_block = "10.0.1.0/24"
-    map_public_ip_on_launch = false
+    map_public_ip_on_launch = true
     vpc_id = module.vpc1.id
     environment = "env1"
     product = "prod1"
