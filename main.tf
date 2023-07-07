@@ -34,21 +34,13 @@ resource "aws_subnet" "subnet-1b"{
     vpc_id = aws_vpc.ecommerce-vpc.id
     cidr_block = "10.10.2.0/24"
     availability_zone = "ap-south-1b"
-    map_public_ip_on_launch = "true"
     tags = {
 	Name = "subnet-1b"
     }
 }
 
 
-resource "aws_subnet" "subnet-1c"{
-    vpc_id = aws_vpc.ecommerce-vpc.id
-    cidr_block = "10.10.3.0/24"
-    availability_zone = "ap-south-1c"
-    tags = {
-	Name = "subnet-1c"
-    }
-}
+
 
 resource "aws_instance" "web001" {
 #    ami = "ami-0851b76e8b1bce90b"
@@ -163,19 +155,19 @@ resource "aws_route_table_association" "associate-1a" {
   route_table_id = aws_route_table.rt_public.id
 }
 
-resource "aws_route_table_association" "associate-1c" {
-  subnet_id      = aws_subnet.subnet-1c.id
+resource "aws_route_table_association" "associate-1b" {
+  subnet_id      = aws_subnet.subnet-1b.id
   route_table_id = aws_route_table.rt_public.id
 }
 
 
-resource "aws_security_group" "aws_default_sg" {
-  ingress {
-    description      = "HTTP from VPC"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+# resource "aws_security_group" "aws_default_sg" {
+#   ingress {
+#     description      = "HTTP from VPC"
+#     from_port        = 80
+#     to_port          = 80
+#     protocol         = "tcp"
+#     cidr_blocks      = ["0.0.0.0/0"]
 
-  }
-}
+#   }
+# }
