@@ -78,7 +78,7 @@ module "route_table_association" {
     route_table_id = module.route_table.id
     environment = "env1"
     product = "prod1"
-    Name = "rt_association_public-prod1"
+    name = "rt_association_public-prod1"
 
 }
 
