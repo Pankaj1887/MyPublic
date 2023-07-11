@@ -5,7 +5,7 @@ resource "aws_instance" "web001" {
     key_name = var.key_name
 
     tags = {
-     Name = var.name
+     name = var.name
      environment = var.environment
      product = var.product
       #	Webserver = "Nginx"
