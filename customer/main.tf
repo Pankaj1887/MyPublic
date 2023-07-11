@@ -76,9 +76,9 @@ module "route_table_association" {
     source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table_association"
     subnet_id      = module.subnet1.id
     route_table_id = module.route_table.id
-    environment = "env1"
-    product = "prod1"
-    name = "rt_association_public-prod1"
+    # environment = "env1"
+    # product = "prod1"
+    # name = "rt_association_public-prod1"
 
 }
 
