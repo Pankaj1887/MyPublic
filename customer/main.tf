@@ -73,7 +73,7 @@ module "route_table" {
 }
 
 module "route_table_association" {
-    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table_association"
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table_association2"
     subnet_id      = module.subnet1.id
     route_table_id = module.route_table.id
 
