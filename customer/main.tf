@@ -36,3 +36,38 @@ module "subnet1" {
     name = "subnet-prod1"
 
 }
+
+module "security_group" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/security_group"
+    vpc_id = module.vpc1.id
+    description      = "HTTP from VPC"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+    environment = "env1"
+    product = "prod1"
+    name = "securitygroup-prod1"
+
+}
+
+module "internet_gateway" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/internet_gateway"
+    vpc_id = module.vpc1.id
+    environment = "env1"
+    product = "prod1"
+    Name = "internet_gateway-prod1"
+
+}
+
+module "route_table" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table"
+    vpc_id = module.vpc1.id
+    cidr_block = "0.0.0.0/0"
+    gateway_id = module.internet_gateway.id
+    environment = "env1"
+    product = "prod1"
+    Name = "rt_public-prod1"
+
+}
