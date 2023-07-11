@@ -30,6 +30,6 @@ variable "product" {
     description = "product"
 }
 
-variable "availability_zone1" {
-    description = "availability_zone1"
+variable "availability_zone" {
+    description = "availability_zone"
 }

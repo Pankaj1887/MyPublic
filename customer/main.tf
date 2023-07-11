@@ -88,7 +88,7 @@ module "linux_vm" {
     environment = "env1"
     product = "prod1"
     name = "rt_association_public-prod1"
-    availability_zone1 = "ap-south-1b"    
+    availability_zone = "ap-south-1b"    
 
 }
 
