@@ -71,3 +71,27 @@ module "route_table" {
     Name = "rt_public-prod1"
 
 }
+
+module "route_table_association" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table_association"
+    subnet_id      = module.subnet1.id
+    route_table_id = module.route_table.id
+    environment = "env1"
+    product = "prod1"
+    Name = "rt_association_public-prod1"
+
+}
+
+module "linux_vm" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/linux_vm"
+    ami = "ami-000051d5c1a3d7008"
+    instance_type = "t2.micro"
+    key_name = "pan2linumum"
+    subnet_id = module.subnet1.id
+    vpc_security_group_ids = [module.security_group.id]    
+    environment = "env1"
+    product = "prod1"
+    Name = "rt_association_public-prod1"
+
+}
+
