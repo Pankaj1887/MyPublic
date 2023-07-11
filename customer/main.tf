@@ -91,7 +91,7 @@ module "linux_vm" {
     vpc_security_group_ids = [module.security_group.id]    
     environment = "env1"
     product = "prod1"
-    Name = "rt_association_public-prod1"
+    name = "rt_association_public-prod1"
 
 }
 
