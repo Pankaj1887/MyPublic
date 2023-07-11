@@ -44,8 +44,8 @@ module "security_group" {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    security_group_cidr_block      = ["0.0.0.0/0"]
+    security_group_ipv6_cidr_block = ["::/0"]
     environment = "env1"
     product = "prod1"
     name = "securitygroup-prod1"
