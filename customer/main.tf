@@ -34,7 +34,6 @@ module "subnet1" {
     environment = "env1"
     product = "prod1"
     name = "subnet-prod1"
-    availability_zone1 = "ap-south-1b"
 }
 
 module "security_group" {
@@ -89,6 +88,7 @@ module "linux_vm" {
     environment = "env1"
     product = "prod1"
     name = "rt_association_public-prod1"
+    availability_zone1 = "ap-south-1b"    
 
 }
 

@@ -29,3 +29,7 @@ variable "environment" {
 variable "product" {
     description = "product"
 }
+
+variable "availability_zone1" {
+    description = "availability_zone1"
+}
