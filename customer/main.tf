@@ -88,7 +88,7 @@ module "linux_vm" {
     instance_type = "t2.micro"
     key_name = "pan2linumum"
     subnet_id = module.subnet1.id
-    vpc_security_group_ids = [module.security_group_id.id]    
+    security_group_id = module.security_group_id.id  
     environment = "env1"
     product = "prod1"
     name = "rt_association_public-prod1"

@@ -11,5 +11,5 @@ resource "aws_instance" "web001" {
       #	Webserver = "Nginx"
     }
     subnet_id = var.subnet_id
-    security_group_id = [var.security_group_id]
+    vpc_security_group_ids = [var.security_group_id]
 }
