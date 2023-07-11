@@ -57,7 +57,7 @@ module "internet_gateway" {
     vpc_id = module.vpc1.id
     environment = "env1"
     product = "prod1"
-    Name = "internet_gateway-prod1"
+    name = "internet_gateway-prod1"
 
 }
 
