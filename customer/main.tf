@@ -64,11 +64,11 @@ module "internet_gateway" {
 module "route_table" {
     source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/route_table"
     vpc_id = module.vpc1.id
-    cidr_block = "0.0.0.0/0"
-    gateway_id = module.internet_gateway.id
+    route_Table_cidr_block = "0.0.0.0/0"
+    internet_gateway_id = module.internet_gateway.id
     environment = "env1"
     product = "prod1"
-    Name = "rt_public-prod1"
+    name = "rt_public-prod1"
 
 }
 
