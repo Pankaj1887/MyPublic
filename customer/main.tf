@@ -97,7 +97,19 @@ module "linux_vm" {
     environment = "env1"
     product = "prod1"
     name = "rt_association_public-prod1"
- 
-
 }
+
+module "windows_vm" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/windows_vm"
+    ami = "ami-0ff1768d0d7c69c2a"
+    instance_type = "t2.micro"
+    key_name = "pan2linumum"
+    subnet_id = module.subnet1.id
+    security_group_id = module.security_group.id  
+    environment = "env1"
+    product = "prod1"
+    name = "rt_association_public-prod1"
+}
+
+
 
