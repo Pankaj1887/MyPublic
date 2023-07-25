@@ -79,6 +79,14 @@ module "route_table_association" {
 
 }
 
+module "nat_gateway" {
+    source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/nat_gateway"
+    # allocation_id = ??
+    subnet_id      = module.subnet1.id
+    name = "nat_gateway-prod1"
+
+}
+
 module "linux_vm" {
     source = "git::https://github.com/Pankaj1887/MyPublic.git//tfmodules/linux_vm"
     ami = "ami-000051d5c1a3d7008"
