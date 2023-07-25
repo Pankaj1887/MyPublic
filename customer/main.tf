@@ -31,7 +31,7 @@ module "subnet1" {
     subnet_cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = true
     vpc_id = module.vpc1.id
-  
+    availability_zone = "ap-south-1b"
     environment = "env1"
     product = "prod1"
     name = "subnet-prod1"
