@@ -14,9 +14,9 @@ variable "name" {
     description = "name of the VPC"
 }
 
-variable "availability_zone" {
-    description = "availability_zone"
-}
+#variable "availability_zone" {
+#    description = "availability_zone"
+#}
 
 variable "environment" {
     description = "environment"
