@@ -192,3 +192,52 @@ resource "aws_lb_target_group_attachment" "attach_web002" {
   target_id        = aws_instance.web002.id
   port             = 80
 }
+
+
+resource "aws_security_group" "lb_webservers_sg" {
+  name        = "webservers-80"
+  description = "allow HTTP inbound traffic"
+  vpc_id      = aws_vpc.ecommerce-vpc.id
+
+  ingress {
+    description      = "HTTP from VPC"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
+
+resource "aws_lb" "lb_webservers" {
+  name               = "lb_webservers"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.lb_webservers_sg.id]
+  subnets            = [aws_subnet.subnet-1a.id, aws_subnet.subnet-1b.id]
+  tags = {
+    Environment = "production"
+  }
+}
+
+resource "aws_lb_listener" "front_end_80" {
+  load_balancer_arn = aws_lb.lb_webservers.arn
+  port              = "80"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.mywebservergroup.arn
+  }
+}
