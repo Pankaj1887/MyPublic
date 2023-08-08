@@ -222,7 +222,7 @@ resource "aws_security_group" "lb_webservers_sg" {
 }
 
 resource "aws_lb" "lb_webservers" {
-  name               = "lb_webservers"
+  name               = "lb-webservers"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb_webservers_sg.id]
