@@ -173,3 +173,22 @@ resource "aws_route_table_association" "associate-1b" {
 
 #   }
 # }
+
+resource "aws_lb_target_group" "mywebservergroup" {
+  name     = "webservergroup"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.ecommerce-vpc.id
+}
+
+resource "aws_lb_target_group_attachment" "attach_web001" {
+  target_group_arn = aws_lb_target_group.mywebservergroup.arn
+  target_id        = aws_instance.web001.id
+  port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "attach_web002" {
+  target_group_arn = aws_lb_target_group.mywebservergroup.arn
+  target_id        = aws_instance.web002.id
+  port             = 80
+}
