@@ -45,7 +45,8 @@ resource "aws_subnet" "subnet-1b"{
 
 resource "aws_instance" "web001" {
 #    ami = "ami-0851b76e8b1bce90b"
-    ami = "ami-000051d5c1a3d7008"
+#    ami = "ami-000051d5c1a3d7008"
+    ami = "ami-0f5ee92e2d63afc18"
     instance_type = "t2.micro"
     key_name = "pan2linumum"
 
@@ -61,7 +62,7 @@ resource "aws_instance" "web001" {
 
 resource "aws_instance" "web002" {
 #    ami = "ami-0851b76e8b1bce90b"
-    ami = "ami-000051d5c1a3d7008"
+    ami = "ami-0f5ee92e2d63afc18"
     instance_type = "t2.micro"
     key_name = "pan2linumum"
 
