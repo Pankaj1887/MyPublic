@@ -274,5 +274,5 @@ resource "aws_autoscaling_group" "ecommerce-asg" {
 
 resource "aws_autoscaling_attachment" "ecommerce-asg-attachment" {
   autoscaling_group_name = aws_autoscaling_group.ecommerce-asg.id
-  lb_target_group_arn    = aws_lb_target_group.mywebservergroup.arn
+  alb_target_group_arn    = aws_lb_target_group.mywebservergroup.arn
 }
