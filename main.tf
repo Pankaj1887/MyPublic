@@ -257,7 +257,6 @@ resource "aws_autoscaling_group" "ecommerce-asg" {
   health_check_type         = "ELB"
   desired_capacity          = 4
   force_delete              = true
-  placement_group           = aws_placement_group.test.id
   launch_configuration      = aws_launch_configuration.ecommerce-launch-config.name
   vpc_zone_identifier       = [aws_subnet.subnet-1a.id, aws_subnet.subnet-1b.id]
 
